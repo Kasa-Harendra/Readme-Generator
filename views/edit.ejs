@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit README - <%= repoName %></title>
+  <link rel="shortcut icon" href="/icon/icon.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <header>
+    <a class="btn btn-light" style="margin: 1rem;" href="/preview?q=<%= repoId %>&name=<%= repoName %>">← Back to Preview</a>
+    <h1 class="text-center" style="margin: 1.5rem;">Editing README for <%= repoName %></h1>
+  </header>
+
+  <main class="editor-container">
+    <form action="/edit?q=<%= repoId %>&name=<%= repoName %>" method="POST">
+      <div class="editor container">
+        <label for="readmeContent">Edit Markdown</label><br>
+        <textarea name="readmeContent" id="readmeContent" rows="20" cols="80"><%- readmeContent %></textarea> <br>
+        <button type="submit" class="btn btn-primary">Save & Preview</button>
+      </div>
+      <div class="preview container">
+        <label>Live Preview</label><br>
+        <div id="livePreview" class="markdown-body"></div>
+      </div>
+    </form>
+  </main>
+
+  <script>
+    const textarea = document.getElementById('readmeContent');
+    const preview = document.getElementById('livePreview');
+
+    function updatePreview() {
+      preview.innerHTML = marked.parse(textarea.value);
+    }
+
+    textarea.value = <%- JSON.stringify(readmeContent) %>;
+
+    textarea.addEventListener('input', updatePreview);
+    window.addEventListener('DOMContentLoaded', updatePreview);
+  </script>
+</body>
+</html>

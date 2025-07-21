@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your GitHub Repositories</title>
+  <link rel="shortcut icon" href="/icon/icon.png" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+  <header class="container text-center flex" style="justify-content: space-between;">
+    <h1 class="text-center" style="margin: 2rem;">Welcome, <%= user.username %>!</h1>
+    <a class="btn btn-danger text-center" href="/logout">Logout</a>
+  </header>
+  <main class="container-sm" style="margin-top: 1rem;">
+    <h2 class="lead" >Select a Repository to Generate README</h2>
+    <div class="flex" id="repo-container" style="margin-top: 1.5rem;">
+      <% repos.forEach(repo => { %>
+          <div class="card" style="">
+            <div class="card-header"><%= repo.name %></div>
+            <div class="card-body">
+              <p class="card-text"><%= repo.description || 'No description' %></p>
+              <a href="/ai/generate?repoId=<%= repo.id %>&name=<%= repo.name %>&owner=<%= repo.owner.login %>" class="btn btn-primary generate-readme-btn"
+                data-repo-id="<%= repo.id %>"
+                data-repo-name="<%= repo.name %>"
+                data-repo-owner="<%= repo.owner.login %>">Generate README</a>
+              <div class="generating-indicator" id="generating-<%= repo.id %>" style="display: none;">
+                Generating... Please wait.
+                <!-- You can also use a spinner/loader here -->
+              </div>
+
+            </div>
+          </div>
+      <% }) %>
+    </div>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js" integrity="sha384-7qAoOXltbVP82dhxHAUje59V5r2YsVfBafyUDxEdApLPmcdhBPg1DKg1ERo0BZlK" crossorigin="anonymous"></script>
+</body>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const generateButtons = document.querySelectorAll('.generate-readme-btn');
+
+    generateButtons.forEach(button => {
+      button.addEventListener('click', async (event) => {
+        event.preventDefault();
+
+        const repoId = button.dataset.repoId;
+        const repoName = button.dataset.repoName;
+        const repoOwner = button.dataset.repoOwner;
+        const generatingIndicator = document.getElementById(`generating-${repoId}`);
+
+        button.style.display = 'none';
+        generatingIndicator.style.display = 'block';
+
+        try {
+          // Fetch the result
+          window.location.href = `/ai/generate?repoId=${repoId}&name=${repoName}&owner=${repoOwner}`;
+
+        } catch (error) {
+          console.error('Error generating README:', error);
+          generatingIndicator.textContent = 'Failed to generate README. Please try again.';
+          button.style.display = 'inline-block';
+        }
+      });
+    });
+  });
+</script>
+</html>

@@ -1,0 +1,38 @@
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-header {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.card {
+  margin: 2rem;
+  max-width: 20rem;
+  min-width: 20rem; 
+  height: 12rem;
+}
+
+#repo-container {
+  justify-content: flex-start;
+}
+
+.card-text {
+  overflow-y: scroll;
+  height: 3rem;
+}
+
+@media (max-width: 400px) {
+  .card {
+    max-width: 10rem;
+  }
+  .container-sm {
+    padding: 0px;
+  }
+  main > h2 {
+    text-align: center;
+  }
+}
