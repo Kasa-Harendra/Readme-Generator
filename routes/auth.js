@@ -30,11 +30,8 @@ passport.deserializeUser((obj, done) => {
 
 router.get("/github", passport.authenticate("github", { scope: ["user", "repo"] }));
 
-router.get(
-  "/github/callback",
+router.get("/github/callback",
   passport.authenticate('github', { 
-    scope: [ 'user:email', 'repo' ],
-    prompt: 'consent',
     failureRedirect : "/"
   }),
   (req, res) => {
