@@ -1,5 +1,3 @@
-// app.js
-
 const dotenv = require('dotenv');
 dotenv.config(); 
 
@@ -23,9 +21,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || 'supersecretkey',
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
   })
 );
 
