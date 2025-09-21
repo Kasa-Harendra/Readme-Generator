@@ -27,6 +27,7 @@ This tool aims to save developers time and ensure consistency in their project d
 *   **Vercel Deployment Ready**: Configured for seamless deployment on Vercel.
 
 ## Directory Structure
+```
 Readme-Generator/
 ├── public/
 │   ├── icon/
@@ -46,7 +47,7 @@ Readme-Generator/
 ├── package-lock.json
 ├── package.json
 └── vercel.json
-
+```
 
 ## Installation
 
@@ -136,4 +137,5 @@ If you have a suggestion that would make this better, please fork the repo and c
 5.  Open a Pull Request
 
 ---
+
 Project Link: [https://github.com/Kasa-Harendra/Readme-Generator](https://github.com/Kasa-Harendra/Readme-Generator)
