@@ -118,12 +118,6 @@ Ensure you have the following installed:
 5.  **Edit and Preview:** The generated README will be displayed in an editor (`views/edit.ejs`) where you can make changes. A live preview (`views/preview.ejs`) will show how the markdown will render.
 6.  **Copy/Save:** Once satisfied, you can copy the markdown content to your clipboard or potentially save it directly (functionality for direct saving to GitHub might be extended in the future, currently, it focuses on content generation).
 
-## License
-
-No explicit license file or information is provided within the repository. Please consider adding a `LICENSE` file to clarify the terms of use and distribution for this project.
-
-*   **TODO**: Add a `LICENSE` file (e.g., MIT, Apache 2.0) to the repository.
-
 ## Contribution Guidelines
 
 Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -139,3 +133,4 @@ If you have a suggestion that would make this better, please fork the repo and c
 ---
 
 Project Link: [https://github.com/Kasa-Harendra/Readme-Generator](https://github.com/Kasa-Harendra/Readme-Generator)
+
