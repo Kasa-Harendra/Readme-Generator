@@ -98,7 +98,7 @@ README should include:
 - Screenshots/Examples (if applicable)
 
 Visit all the code in the file links provided. Ensure markdown formatting. Keep the README technically accurate. If some sections lack context (like screenshots), skip them or add a TODO note. Analyze the structure present in the link more carefully and include the key features. The readme should be long enough that it can help understand complete content of the repo. Also provide links of possible sources
-wherever possible. Ensure all the sections of the structure within the single readme file and not as your own text.
+wherever possible. Ensure all the sections of the structure within the single readme file and not as your own text. Ensure that the whole content is not mistakenly contained within code-syntax of markdown
 `;
 
     const response = await ai.models.generateContent({
