@@ -50,8 +50,12 @@ router.post("/edit", ensureAuthenticated, (req, res) => {
 
 router.get("/download", ensureAuthenticated, (req, res) => {
   const { repoId, name } = req.query;
-  const content = req.session.readmeMap?.[repoId] || "No README content available.";
-
+  if (req.sessiom.readmeMap[repoId] != '') {
+    const content = req.session.readmeMap[repoId] ;
+  } else {
+    const content = "No README content available.";
+  }
+  
   res.setHeader("Content-Disposition", `attachment; filename=README_${name}.md`);
   res.setHeader("Content-Type", "text/markdown");
   res.send(content);
