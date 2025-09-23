@@ -88,6 +88,8 @@ README should include:
 - Project title
 - shields or badges
 - Description
+- Directory (or) Repo Structure (must)
+- Dependency graph i.e. A mind map using mermaid.js showcasing the dependencies between the files.
 - Features (if any)
 - Installation instructions
 - Usage
