@@ -1,8 +1,9 @@
 # Readme-Generator
 
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-green?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![Express.js](https://img.shields.io/badge/Express.js-4.x-blue?logo=express&logoColor=white)](https://expressjs.com/)
-[![EJS](https://img.shields.io/badge/EJS-template-lightgrey?logo=html5)](https://ejs.co/)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![EJS](https://img.shields.io/badge/EJS-lightgrey?style=for-the-badge&logo=ejs&logoColor=black)
+![GitHub API](https://img.shields.io/badge/GitHub_API-181717?style=for-the-badge&logo=github&logoColor=white)
 [![Passport.js](https://img.shields.io/badge/Passport.js-Auth-brightgreen?logo=passport)](http://www.passportjs.org/)
 [![Octokit](https://img.shields.io/badge/Octokit-GitHub%20API-orange?logo=github&logoColor=white)](https://octokit.github.io/rest.js/)
 [![Deployed with Vercel](https://img.shields.io/badge/Deployed%20with-Vercel-black?logo=vercel)](https://vercel.com/)
@@ -47,6 +48,51 @@ Readme-Generator/
 ├── package-lock.json
 ├── package.json
 └── vercel.json
+```
+
+## Dependency Graph
+
+The following diagram illustrates the main components and their dependencies within the `Readme-Generator` application:
+
+```mermaid
+graph TD
+    A[app.js - Main Entry Point] --> B(Express.js Server);
+    A --> C(Configuration .env);
+    A --> D(Static Files: public/);
+    A --> E(Session Management);
+    A --> F(Authentication: passport);
+
+    B --> G[Routes: routes/];
+    G --> G1[routes/auth.js];
+    G --> G2[routes/github.js];
+    G --> G3[routes/ai.js];
+
+    F --> G1;
+    G1 --> H(GitHub OAuth: passport-github2);
+
+    G2 --> I(GitHub API: Octokit);
+
+    G3 --> J(OpenAI API: openai);
+
+    G1 --> K[Views: views/landing.ejs, views/home.ejs];
+    G2 --> K;
+    G3 --> K;
+
+    K --> L(Data Rendering: EJS);
+
+    subgraph External Services
+        H -.-> M(GitHub.com);
+        I -.-> M;
+        J -.-> N(OpenAI.com);
+    end
+
+    style A fill:#f9f,stroke:#333,stroke-width:2px;
+    style B fill:#bbf,stroke:#333,stroke-width:2px;
+    style G fill:#fcf,stroke:#333,stroke-width:2px;
+    style K fill:#ccf,stroke:#333,stroke-width:2px;
+    style L fill:#eee,stroke:#333,stroke-width:2px;
+    style M fill:#afa,stroke:#333,stroke-width:2px;
+    style N fill:#afa,stroke:#333,stroke-width:2px;
 ```
 
 ## Installation
@@ -133,4 +179,5 @@ If you have a suggestion that would make this better, please fork the repo and c
 ---
 
 Project Link: [https://github.com/Kasa-Harendra/Readme-Generator](https://github.com/Kasa-Harendra/Readme-Generator)
+
 
