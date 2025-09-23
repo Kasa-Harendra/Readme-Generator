@@ -72,7 +72,7 @@ graph TD
 
     G2 --> I(GitHub API: Octokit);
 
-    G3 --> J(OpenAI API: openai);
+    G3 --> J(Gemini API: gemini);
 
     G1 --> K[Views: views/landing.ejs, views/home.ejs];
     G2 --> K;
@@ -83,7 +83,7 @@ graph TD
     subgraph External Services
         H -.-> M(GitHub.com);
         I -.-> M;
-        J -.-> N(OpenAI.com);
+        J -.-> N(Gemini.app);
     end
 
     style A fill:#f9f,stroke:#333,stroke-width:2px;
@@ -179,5 +179,6 @@ If you have a suggestion that would make this better, please fork the repo and c
 ---
 
 Project Link: [https://github.com/Kasa-Harendra/Readme-Generator](https://github.com/Kasa-Harendra/Readme-Generator)
+
 
 
