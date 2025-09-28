@@ -91,8 +91,8 @@ README should include:
 - Directory (or) Repo Structure (must)
 - Dependency graph i.e. A mind map using mermaid.js showcasing the dependencies between the files.
 - Features (if any)
-- Installation instructions
-- Usage
+- Installation instructions (Only if the repo represents an application)
+- Usage (Only if installation section is applicable)
 - License
 - Contribution guidelines
 - Screenshots/Examples (if applicable)
